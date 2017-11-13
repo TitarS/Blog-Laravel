@@ -10,6 +10,7 @@
                 Добавить категорию
                 <small>приятные слова..</small>
             </h1>
+            {!! Breadcrumbs::render('category', $category) !!}
         </section>
 
         <!-- Main content -->

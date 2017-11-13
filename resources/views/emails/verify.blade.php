@@ -1,7 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Titar
- * Date: 01.11.2017
- * Time: 15:12
- */
+<h1>Спасибо! Кликните по ссылке</h1>
+
+<a href="http://blog-laravel/verify/{{$subs->token}}">{{ $subs->token }}</a>

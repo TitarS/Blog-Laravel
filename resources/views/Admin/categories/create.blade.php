@@ -9,6 +9,7 @@
                 Добавить категорию
                 <small>приятные слова..</small>
             </h1>
+
         </section>
 
         <!-- Main content -->

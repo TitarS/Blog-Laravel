@@ -6,6 +6,7 @@ use App\Category;
 use App\Tag;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -17,8 +18,9 @@ class HomeController extends Controller
 
     public function show($slug) {
         $post = Post::where('slug', $slug)->firstOrFail();
-
-        return view('pages.show', compact('post'));
+        $user = Auth::user();
+        //dd(Auth::check());
+        return view('pages.show', compact('post', 'user'));
     }
 
     public function tag($slug) {

@@ -35,6 +35,10 @@
                             <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="" value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Your status</label>
+                            <textarea rows="5" class="form-control" id="text" name="text" placeholder="your status">{{ $user->text }}</textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Пароль</label>
                             <input type="password" class="form-control" id="exampleInputEmail1" name="password" placeholder="">
                         </div>

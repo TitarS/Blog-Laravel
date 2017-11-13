@@ -3,9 +3,11 @@
 
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
+            @include('admin.errors')
 
-            <form action="#">
-                <input type="email" placeholder="Your email address">
+            <form action="/subscribe" method="post">
+                {{ csrf_field() }}
+                <input type="text" placeholder="Your email address" name="email" class="subsEmail">
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>
@@ -80,3 +82,15 @@
         </aside>
     </div>
 </div>
+
+<style>
+    .subsEmail {
+        width: 100%;
+        margin-bottom: 14px;
+        border: 1px solid #eeeeee;
+        padding: 5px 15px;
+        font-style: italic;
+        border-radius: 0;
+        background: #fafafa;
+    }
+</style>

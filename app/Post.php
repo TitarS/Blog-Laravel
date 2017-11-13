@@ -24,6 +24,10 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
     public function tags() {
         return $this->belongsToMany(
             Tag::class,
@@ -72,7 +76,7 @@ class Post extends Model
             return;
         }
         $this->removeImage();
-        //$fileName = str_random(10) . '.' . $image->getClientsOriginExtension();
+        //$fileName = str_random(10) . '.' . $image->getClientOriginalExtension();
         $fileName = str_random(10) . '.' . $image->extension();
         $image->storeAs('uploads', $fileName);
         $this->image = $fileName;
@@ -188,10 +192,14 @@ class Post extends Model
     }
 
     public function related() {
-        return self::all()->except($this->id);
+            return self::all()->except($this->id);
     }
 
     public function hasCategory() {
         return $this->category != null ? true : false;
+    }
+
+    public function getComments() {
+        return $this->comments()->where('status', 1)->get();
     }
 }
